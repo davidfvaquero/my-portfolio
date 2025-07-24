@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
+export default async function ProjectDetail(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const projects = [
     {
       slug: "mood-tracker",
