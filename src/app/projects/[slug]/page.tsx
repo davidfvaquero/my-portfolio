@@ -45,7 +45,7 @@ const projects = [
   },
 ];
 
-export default function ProjectDetail({ params }: Props) {
+export default async function ProjectDetail({ params }: Props) {
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return null;
 
