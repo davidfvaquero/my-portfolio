@@ -7,7 +7,7 @@ const projects = [
     description: "Aplicación usando Flutter para registrar y analizar tu estado de ánimo a lo largo del tiempo.",
     github: "https://github.com/davidfvaquero/mood_tracker",
     image: "/mood-tracker.png",
-    technologies: ["Flutter"],
+    technologies: ["Flutter", "Dart"],
   },
   {
     slug: "escape-from-comercio",
@@ -15,7 +15,7 @@ const projects = [
     description: "Aventura gráfica desarrollada en JavaFX.",
     github: "https://github.com/davidfvaquero/escapeFromComercio",
     image: "/escape-from-comercio.png",
-    technologies: ["JavaFX"],
+    technologies: ["Java", "JavaFX"],
   },
   {
     slug: "calculadora",
@@ -24,6 +24,14 @@ const projects = [
     github: "https://github.com/davidfvaquero/calculadora",
     image: "/calculadora.png",
     technologies: ["Java", "Android Studio"],
+  },
+  {
+    slug: "my-portfolio",
+    name: "My Portfolio",
+    description: "Portfolio web personal desarrollado con Next.js y Tailwind CSS.",
+    github: "https://github.com/davidfvaquero/my-portfolio",
+    image: "/my-portfolio.png",
+    technologies: ["Next.js", "React", "Tailwind CSS"],
   },
 ];
 

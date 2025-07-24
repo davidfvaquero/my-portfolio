@@ -25,6 +25,22 @@ const projects = [
     image: "/calculadora.png",
     technologies: ["Java", "Android Studio"],
   },
+  {
+    slug: "my-portfolio",
+    name: "My Portfolio",
+    description: "Portfolio web personal desarrollado con Next.js y Tailwind CSS.",
+    github: "https://github.com/davidfvaquero/my-portfolio",
+    image: "/my-portfolio.png",
+    technologies: ["Next.js", "React", "Tailwind CSS"],
+  },
+  {
+    slug: "topdown2d",
+    name: "TopDown2D",
+    description: "Videojuego 2D tipo top-down desarrollado con Unity y C#.",
+    github: "https://github.com/davidfvaquero/TopDown2D",
+    image: "/topdown2d.png",
+    technologies: ["Unity", "C#"],
+  },
 ];
 
 const Projects = () => (
@@ -48,9 +64,14 @@ const Projects = () => (
                 </span>
               ))}
             </div>
-            <Link href={`/projects/${project.slug}`} className="text-blue-600 hover:underline">
-              Ver más detalles
-            </Link>
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Ver en GitHub
+            </a>
           </div>
         </li>
       ))}
