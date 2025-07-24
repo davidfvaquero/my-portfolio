@@ -1,12 +1,6 @@
 import { notFound } from "next/navigation";
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-export default async function ProjectDetail({ params }: PageProps) {
+export default async function ProjectDetail({ params }: { params: { slug: string } }) {
   const projects = [
     {
       slug: "mood-tracker",
