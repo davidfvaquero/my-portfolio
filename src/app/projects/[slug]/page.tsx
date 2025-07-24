@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-export default function ProjectDetail({ params }) {
+export default function ProjectDetail({ params }: { params: { slug: string } }) {
   const projects = [
     {
       slug: "mood-tracker",
