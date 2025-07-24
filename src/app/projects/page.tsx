@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
@@ -49,9 +49,11 @@ const Projects = () => (
     <ul className="flex flex-col gap-6">
       {projects.map((project) => (
         <li key={project.slug} className="border rounded p-4 hover:shadow transition flex gap-4 items-center">
-          <img
+          <Image
             src={project.image}
             alt={project.name}
+            width={64}
+            height={64}
             className="w-16 h-16 object-cover rounded shadow-sm border"
           />
           <div className="flex-1">

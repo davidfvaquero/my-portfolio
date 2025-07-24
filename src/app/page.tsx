@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import { SiOpenjdk, SiPython, SiReact, SiMysql, SiLinux } from "react-icons/si";
 
 export default function Home() {

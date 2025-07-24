@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import Image from "next/image";
 
 export default async function ProjectDetail(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
@@ -51,9 +51,11 @@ export default async function ProjectDetail(props: { params: Promise<{ slug: str
   return (
     <main className="max-w-2xl mx-auto px-4 pt-32">
       <div className="flex items-center gap-6 mb-6">
-        <img
+        <Image
           src={project.image}
           alt={project.name}
+          width={80}
+          height={80}
           className="w-20 h-20 object-cover rounded shadow-sm border"
         />
         <div>

@@ -1,11 +1,16 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <main className="max-w-2xl mx-auto px-4 pt-32 flex flex-col items-center text-center gap-6">
       <h2 className="text-3xl font-bold mb-4">Sobre mí</h2>
-      <img
+      <Image
         src="/perfil.jpg"
         alt="Foto de David"
+        width={128}
+        height={128}
         className="w-32 h-32 rounded-full object-cover border-4 border-gray-200 shadow-md mx-auto"
+        priority
       />
       <p className="text-lg text-gray-700">
         ¡Hola! Soy David, desarrollador de software con pasión por la tecnología, la inteligencia artificial y la creación de soluciones innovadoras. Tengo experiencia en desarrollo web, aplicaciones móviles, proyectos de IA y agentes inteligentes, así como en el uso de Arduino y el desarrollo de soluciones IoT. Me encanta aprender nuevas tecnologías y trabajar en equipo para afrontar retos complejos.
@@ -25,7 +30,7 @@ export default function About() {
           GitHub
         </a>
         <a
-          href="https://www.linkedin.com/in/david-fernández-vaquero-15b8b8346/?trk=opento_sprofile_details"
+          href="https://www.linkedin.com/in/davidfvaquero/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium transition-colors"
