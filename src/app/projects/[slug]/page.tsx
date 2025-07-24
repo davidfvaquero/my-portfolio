@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 
+type Props = { params: { slug: string } };
+
 const projects = [
   {
     slug: "mood-tracker",
@@ -33,11 +35,19 @@ const projects = [
     image: "/my-portfolio.png",
     technologies: ["Next.js", "React", "Tailwind CSS"],
   },
+  {
+    slug: "topdown2d",
+    name: "TopDown2D",
+    description: "Videojuego 2D tipo top-down desarrollado con Unity y C#.",
+    github: "https://github.com/davidfvaquero/TopDown2D",
+    image: "/topdown2d.png",
+    technologies: ["Unity", "C#"],
+  },
 ];
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
+export default function ProjectDetail({ params }: Props) {
   const project = projects.find((p) => p.slug === params.slug);
-  if (!project) return notFound();
+  if (!project) return null;
 
   return (
     <main className="max-w-2xl mx-auto px-4 pt-32">
