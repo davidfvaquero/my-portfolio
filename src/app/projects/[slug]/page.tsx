@@ -1,51 +1,49 @@
 import { notFound } from "next/navigation";
 
-type Props = { params: { slug: string } };
+export default async function ProjectDetail({ params }: { params: { slug: string } }) {
+  const projects = [
+    {
+      slug: "mood-tracker",
+      name: "Mood Tracker",
+      description: "Aplicación usando Flutter para registrar y analizar tu estado de ánimo a lo largo del tiempo.",
+      github: "https://github.com/davidfvaquero/mood_tracker",
+      image: "/mood-tracker.png",
+      technologies: ["Flutter", "Dart"],
+    },
+    {
+      slug: "escape-from-comercio",
+      name: "Escape From Comercio",
+      description: "Aventura gráfica desarrollada en JavaFX.",
+      github: "https://github.com/davidfvaquero/escapeFromComercio",
+      image: "/escape-from-comercio.png",
+      technologies: ["Java", "JavaFX"],
+    },
+    {
+      slug: "calculadora",
+      name: "Calculadora",
+      description: "Calculadora simple creada en Android Studio (Java).",
+      github: "https://github.com/davidfvaquero/calculadora",
+      image: "/calculadora.png",
+      technologies: ["Java", "Android Studio"],
+    },
+    {
+      slug: "my-portfolio",
+      name: "My Portfolio",
+      description: "Portfolio web personal desarrollado con Next.js y Tailwind CSS.",
+      github: "https://github.com/davidfvaquero/my-portfolio",
+      image: "/my-portfolio.png",
+      technologies: ["Next.js", "React", "Tailwind CSS"],
+    },
+    {
+      slug: "topdown2d",
+      name: "TopDown2D",
+      description: "Videojuego 2D tipo top-down desarrollado con Unity y C#.",
+      github: "https://github.com/davidfvaquero/TopDown2D",
+      image: "/topdown2d.png",
+      technologies: ["Unity", "C#"],
+    },
+  ];
 
-const projects = [
-  {
-    slug: "mood-tracker",
-    name: "Mood Tracker",
-    description: "Aplicación usando Flutter para registrar y analizar tu estado de ánimo a lo largo del tiempo.",
-    github: "https://github.com/davidfvaquero/mood_tracker",
-    image: "/mood-tracker.png",
-    technologies: ["Flutter", "Dart"],
-  },
-  {
-    slug: "escape-from-comercio",
-    name: "Escape From Comercio",
-    description: "Aventura gráfica desarrollada en JavaFX.",
-    github: "https://github.com/davidfvaquero/escapeFromComercio",
-    image: "/escape-from-comercio.png",
-    technologies: ["Java", "JavaFX"],
-  },
-  {
-    slug: "calculadora",
-    name: "Calculadora",
-    description: "Calculadora simple creada en Android Studio (Java).",
-    github: "https://github.com/davidfvaquero/calculadora",
-    image: "/calculadora.png",
-    technologies: ["Java", "Android Studio"],
-  },
-  {
-    slug: "my-portfolio",
-    name: "My Portfolio",
-    description: "Portfolio web personal desarrollado con Next.js y Tailwind CSS.",
-    github: "https://github.com/davidfvaquero/my-portfolio",
-    image: "/my-portfolio.png",
-    technologies: ["Next.js", "React", "Tailwind CSS"],
-  },
-  {
-    slug: "topdown2d",
-    name: "TopDown2D",
-    description: "Videojuego 2D tipo top-down desarrollado con Unity y C#.",
-    github: "https://github.com/davidfvaquero/TopDown2D",
-    image: "/topdown2d.png",
-    technologies: ["Unity", "C#"],
-  },
-];
-
-export default async function ProjectDetail({ params }: Props) {
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return null;
 
