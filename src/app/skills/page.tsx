@@ -1,4 +1,4 @@
-import { SiJavascript, SiOpenjdk, SiDart, SiPython, SiDotnet, SiFlutter, SiAndroidstudio, SiMongodb, SiMysql, SiArduino, SiOllama, SiGithub, SiGit, SiOpenai } from "react-icons/si";
+import { SiJavascript, SiOpenjdk, SiDart, SiPython, SiDotnet, SiFlutter, SiAndroidstudio, SiMongodb, SiMysql, SiArduino, SiOllama, SiGithub, SiGit, SiOpenai, SiNextdotjs, SiReact, SiTailwindcss, SiTypescript, SiVercel, SiHive, SiLinux } from "react-icons/si";
 
 const skills = [
   {
@@ -7,6 +7,10 @@ const skills = [
       {
         name: "JavaScript",
         icon: <SiJavascript className="w-6 h-6 text-yellow-400" />,
+      },
+      {
+        name: "TypeScript",
+        icon: <SiTypescript className="w-6 h-6 text-blue-700" />,
       },
       {
         name: "Java",
@@ -29,6 +33,18 @@ const skills = [
   {
     category: "Frameworks / Librerías",
     items: [
+      {
+        name: "React",
+        icon: <SiReact className="w-6 h-6 text-sky-500" />,
+      },
+      {
+        name: "Next.js",
+        icon: <SiNextdotjs className="w-6 h-6 text-black" />,
+      },
+      {
+        name: "Tailwind CSS",
+        icon: <SiTailwindcss className="w-6 h-6 text-cyan-500" />,
+      },
       {
         name: "Flutter",
         icon: <SiFlutter className="w-6 h-6 text-[#02569B]" />,
@@ -53,6 +69,10 @@ const skills = [
       {
         name: "MongoDB",
         icon: <SiMongodb className="w-6 h-6 text-green-600" />,
+      },
+      {
+        name: "Hive",
+        icon: <SiHive className="w-6 h-6 text-yellow-700" />,
       },
     ],
   },
@@ -88,6 +108,14 @@ const skills = [
       {
         name: "GitHub",
         icon: <SiGithub className="w-6 h-6 text-black" />,
+      },
+      {
+        name: "Vercel",
+        icon: <SiVercel className="w-6 h-6 text-black" />,
+      },
+      {
+        name: "Linux",
+        icon: <SiLinux className="w-6 h-6 text-black" />,
       },
     ],
   },
