@@ -37,9 +37,9 @@ export default function Contact() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto px-4 pt-32">
-      <h2 className="text-2xl font-bold mb-4">Contacto</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white p-6 rounded shadow">
+    <main className="max-w-2xl mx-auto px-4 pt-24 sm:pt-32">
+      <h2 className="text-2xl font-bold mb-2 sm:mb-4">Contacto</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4 bg-white p-4 sm:p-6 rounded shadow">
         <input
           type="text"
           name="name"
@@ -47,7 +47,7 @@ export default function Contact() {
           value={form.name}
           onChange={handleChange}
           required
-          className="border rounded px-3 py-2"
+          className="border rounded px-2 sm:px-3 py-2"
         />
         <input
           type="email"
@@ -56,7 +56,7 @@ export default function Contact() {
           value={form.email}
           onChange={handleChange}
           required
-          className="border rounded px-3 py-2"
+          className="border rounded px-2 sm:px-3 py-2"
         />
         <textarea
           name="message"
@@ -65,7 +65,7 @@ export default function Contact() {
           onChange={handleChange}
           required
           rows={5}
-          className="border rounded px-3 py-2"
+          className="border rounded px-2 sm:px-3 py-2"
         />
         <button
           type="submit"

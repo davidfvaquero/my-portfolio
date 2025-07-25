@@ -2,23 +2,23 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <main className="max-w-2xl mx-auto px-4 pt-32 flex flex-col items-center text-center gap-6">
-      <h2 className="text-3xl font-bold mb-4">Sobre mí</h2>
+    <main className="max-w-2xl mx-auto px-4 pt-24 sm:pt-32 flex flex-col items-center text-center gap-4 sm:gap-6">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Sobre mí</h2>
       <Image
         src="/perfil.jpg"
         alt="Foto de David"
-        width={128}
-        height={128}
-        className="w-32 h-32 rounded-full object-cover border-4 border-gray-200 shadow-md mx-auto"
+        width={96}
+        height={96}
+        className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-gray-200 shadow-md mx-auto"
         priority
       />
-      <p className="text-lg text-gray-700">
+      <p className="text-base sm:text-lg text-gray-700">
         ¡Hola! Soy David, desarrollador de software con pasión por la tecnología, la inteligencia artificial y la creación de soluciones innovadoras. Tengo experiencia en desarrollo web, aplicaciones móviles, proyectos de IA y agentes inteligentes, así como en el uso de Arduino y el desarrollo de soluciones IoT. Me encanta aprender nuevas tecnologías y trabajar en equipo para afrontar retos complejos.
       </p>
-      <p className="text-md text-gray-600">
+      <p className="text-sm sm:text-md text-gray-600">
         Puedes ver algunos de mis proyectos destacados en este portafolio y contactarme para colaborar o compartir ideas.
       </p>
-      <div className="flex gap-6 justify-center mt-2">
+      <div className="flex gap-4 sm:gap-6 justify-center mt-1 sm:mt-2">
         <a
           href="https://github.com/davidfvaquero"
           target="_blank"

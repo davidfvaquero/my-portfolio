@@ -48,18 +48,21 @@ const Projects = () => (
     <h2 className="text-2xl font-bold mb-8">Proyectos</h2>
     <ul className="flex flex-col gap-6">
       {projects.map((project) => (
-        <li key={project.slug} className="border rounded p-4 hover:shadow transition flex gap-4 items-center">
+        <li
+          key={project.slug}
+          className="border rounded p-4 hover:shadow transition flex flex-col md:flex-row gap-4 items-center md:items-start"
+        >
           <Image
             src={project.image}
             alt={project.name}
             width={64}
             height={64}
-            className="w-16 h-16 object-cover rounded shadow-sm border"
+            className="w-24 h-24 md:w-16 md:h-16 object-cover rounded shadow-sm border mx-auto md:mx-0"
           />
-          <div className="flex-1">
-            <h3 className="text-xl font-semibold mb-1">{project.name}</h3>
-            <p className="mb-2 text-gray-600">{project.description}</p>
-            <div className="flex flex-wrap gap-2 mb-2">
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-lg md:text-xl font-semibold mb-1">{project.name}</h3>
+            <p className="mb-2 text-gray-600 text-sm md:text-base">{project.description}</p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-2">
               {project.technologies.map((tech) => (
                 <span key={tech} className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">
                   {tech}
