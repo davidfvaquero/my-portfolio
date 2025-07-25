@@ -6,14 +6,14 @@ export default function About() {
       <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">About Me</h2>
       <Image
         src="/perfil.jpg"
-        alt="David's photo"
+        alt="David&apos;s photo"
         width={96}
         height={96}
         className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-gray-200 shadow-md mx-auto"
         priority
       />
       <p className="text-base sm:text-lg text-gray-700">
-        Hi! I'm David, a software developer passionate about technology, artificial intelligence, and creating innovative solutions. I have experience in web development, mobile applications, AI projects and intelligent agents, as well as using Arduino and developing IoT solutions. I love learning new technologies and working in teams to tackle complex challenges.
+        Hi! I&apos;m David, a software developer passionate about technology, artificial intelligence, and creating innovative solutions. I have experience in web development, mobile applications, AI projects and intelligent agents, as well as using Arduino and developing IoT solutions. I love learning new technologies and working in teams to tackle complex challenges.
       </p>
       <p className="text-sm sm:text-md text-gray-600">
         You can see some of my featured projects in this portfolio and contact me to collaborate or share ideas.
