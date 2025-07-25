@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Fernández's Portfolio
 
-## Getting Started
+This is a personal portfolio web app built with **Next.js 15**, **React 19**, **TypeScript**, and **Tailwind CSS**. It showcases projects, skills, personal information, and includes a working contact form.
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+You can see a live demo (if deployed) or run it locally by following the instructions below.
+
+---
+
+## Main Technologies
+
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Nodemailer](https://nodemailer.com/) (for the contact form)
+
+---
+
+## Project Structure
+
+```
+my-portfolio/
+├── public/                # Images, favicon, and CV
+├── src/
+│   └── app/
+│       ├── layout.tsx     # Global layout, meta tags, and favicon
+│       ├── page.tsx       # Main page (Home)
+│       ├── about/         # "About me" section
+│       ├── skills/        # Skills section
+│       ├── projects/      # Projects list and detail
+│       ├── contact/       # Contact form
+│       ├── components/    # Navbar and Footer
+│       └── api/contact/   # API for the contact form
+├── tailwind.config.js     # Tailwind configuration
+├── tsconfig.json          # TypeScript configuration
+├── package.json           # Dependencies and scripts
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Main Pages
+- `/`            → Home
+- `/about`       → About me
+- `/skills`      → Skills
+- `/projects`    → Projects
+- `/projects/[slug]` → Project detail
+- `/contact`     → Contact
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation & Local Development
 
-## Learn More
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/my-portfolio.git
+   cd my-portfolio
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or yarn install
+   ```
+3. **Set up environment variables for the contact form:**
+   Create a `.env.local` file in the root with:
+   ```env
+   GMAIL_USER=your-email@gmail.com
+   GMAIL_PASS=your-app-password
+   ```
+   > **Note:** You must use a Gmail app password. [Official guide](https://support.google.com/accounts/answer/185833?hl=en)
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
+- **Projects:** Edit the projects array in `src/app/projects/page.tsx` and `src/app/projects/[slug]/page.tsx`.
+- **Skills:** Modify the array in `src/app/skills/page.tsx`.
+- **Personal info:** Change texts and images in the relevant pages.
+- **Images & CV:** Replace files in the `public/` folder.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is ready to be deployed on [Vercel](https://vercel.com/) or any platform compatible with Next.js.
+
+1. Push the repository to GitHub.
+2. Connect it to Vercel and set the environment variables (`GMAIL_USER`, `GMAIL_PASS`).
+3. Done!
+
+---
+
+## Accessibility & Responsiveness
+- The design is fully responsive and accessible.
+- The mobile menu features smooth animations and supports keyboard and screen readers.
+- SEO and social meta tags are included.
+
+---
+
+## Useful Scripts
+- `npm run dev`    → Development
+- `npm run build`  → Production build
+- `npm run start`  → Production server
+- `npm run lint`   → Code linting
+
+---
+
+## Credits & Resources
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Nodemailer](https://nodemailer.com/)
+
+---
+
+## License
+
+This project is for personal use. You can adapt and reuse it for your own portfolio, crediting the original author.
