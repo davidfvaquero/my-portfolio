@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "../../hooks/useTranslations";
 
 export default function About() {
-  const { t, language } = useTranslations();
+  const { language } = useTranslations();
 
   return (
     <main className="max-w-2xl mx-auto px-4 pt-24 sm:pt-32 flex flex-col items-center text-center gap-4 sm:gap-6">
