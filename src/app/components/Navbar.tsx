@@ -21,9 +21,12 @@ const Navbar = () => {
     setLanguage(newLang);
   };
 
+
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-50 shadow-sm">
-      <div className="max-w-3xl mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
+      <div className="max-w-3xl mx-auto px-4 py-4 sm:py-6 flex items-center justify-between relative">
+        {/* Botón móvil */}
         <div className="sm:hidden">
           <button
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -37,7 +40,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex items-center gap-4">
+                {/* Selector de idioma */}
+        <div className="flex items-center gap-4 z-10">
           <select
             value={language}
             onChange={handleLanguageChange}
@@ -51,12 +55,13 @@ const Navbar = () => {
           </select>
         </div>
 
-        <ul className="hidden sm:flex gap-8 sm:gap-12 text-lg font-semibold">
-          <li><Link href={`/${language}`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.home')}</Link></li>
-          <li><Link href={`/${language}/about`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.about')}</Link></li>
-          <li><Link href={`/${language}/projects`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.projects')}</Link></li>
-          <li><Link href={`/${language}/skills`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.skills')}</Link></li>
-          <li><Link href={`/${language}/contact`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.contact')}</Link></li>
+        {/* Menú desktop centrado */}
+        <ul className="hidden sm:flex gap-6 sm:gap-8 text-lg font-semibold absolute left-1/2 transform -translate-x-1/2">
+          <li><Link href={`/${language}`} className="text-black hover:text-gray-700 transition-colors duration-200 whitespace-nowrap">{t('nav.home')}</Link></li>
+          <li><Link href={`/${language}/about`} className="text-black hover:text-gray-700 transition-colors duration-200 whitespace-nowrap">{t('nav.about')}</Link></li>
+          <li><Link href={`/${language}/projects`} className="text-black hover:text-gray-700 transition-colors duration-200 whitespace-nowrap">{t('nav.projects')}</Link></li>
+          <li><Link href={`/${language}/skills`} className="text-black hover:text-gray-700 transition-colors duration-200 whitespace-nowrap">{t('nav.skills')}</Link></li>
+          <li><Link href={`/${language}/contact`} className="text-black hover:text-gray-700 transition-colors duration-200 whitespace-nowrap">{t('nav.contact')}</Link></li>
         </ul>
 
         {/* Menú móvil */}
