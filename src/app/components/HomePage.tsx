@@ -3,7 +3,7 @@
 import { SiOpenjdk, SiPython, SiReact, SiMysql, SiLinux } from "react-icons/si";
 import { useTranslations } from "../hooks/useTranslations";
 
-export default function Home() {
+export default function HomePage() {
   const { t } = useTranslations();
 
   return (

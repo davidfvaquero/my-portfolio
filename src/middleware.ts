@@ -3,15 +3,13 @@ import { NextRequest, NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Si es la ruta raíz, redirigir basándose en la preferencia guardada
+  // Solo redirigir si es la ruta raíz
   if (pathname === '/') {
     const preferredLanguage = request.cookies.get('preferred-language')?.value;
+    const validLanguages = ['es', 'en'];
+    const targetLanguage = preferredLanguage && validLanguages.includes(preferredLanguage) ? preferredLanguage : 'es';
     
-    if (preferredLanguage === 'en') {
-      return NextResponse.redirect(new URL('/en', request.url));
-    } else {
-      return NextResponse.redirect(new URL('/es', request.url));
-    }
+    return NextResponse.redirect(new URL(`/${targetLanguage}`, request.url));
   }
   
   return NextResponse.next();

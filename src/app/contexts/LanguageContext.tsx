@@ -2,8 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-
-type Language = 'es' | 'en';
+import { Language } from '../translations';
 
 interface LanguageContextType {
   language: Language;
@@ -34,36 +33,33 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   // Cargar idioma desde localStorage al inicializar
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferred-language') as Language;
-    if (savedLanguage && ['es', 'en'].includes(savedLanguage)) {
+    const pathLang = pathname.split("/")[1] as Language;
+    const validLanguages: Language[] = ['es', 'en'];
+    
+    if (savedLanguage && validLanguages.includes(savedLanguage)) {
       setLanguageState(savedLanguage);
-    } else {
-      // Detectar idioma por la ruta si no hay preferencia guardada
-      const pathLang = pathname.split("/")[1];
-      if (['en', 'es'].includes(pathLang)) {
-        setLanguageState(pathLang as Language);
-        localStorage.setItem('preferred-language', pathLang);
-        // Guardar también en cookies
-        document.cookie = `preferred-language=${pathLang}; path=/; max-age=31536000`;
-      }
+    } else if (validLanguages.includes(pathLang)) {
+      setLanguageState(pathLang);
+      localStorage.setItem('preferred-language', pathLang);
+      document.cookie = `preferred-language=${pathLang}; path=/; max-age=31536000`;
     }
+    
     setIsLoading(false);
   }, [pathname]);
 
   const setLanguage = (newLanguage: Language) => {
     setLanguageState(newLanguage);
     localStorage.setItem('preferred-language', newLanguage);
-    
-    // Guardar también en cookies para el middleware
-    document.cookie = `preferred-language=${newLanguage}; path=/; max-age=31536000`; // 1 año
+    document.cookie = `preferred-language=${newLanguage}; path=/; max-age=31536000`;
     
     // Redirigir a la ruta correcta del idioma
     const segments = pathname.split("/").filter(Boolean);
-    if (['en', 'es'].includes(segments[0])) {
-      segments[0] = newLanguage;
-    } else {
-      segments.unshift(newLanguage);
-    }
-    router.push("/" + segments.join("/"));
+    const validLanguages: Language[] = ['es', 'en'];
+    const newSegments = validLanguages.includes(segments[0] as Language) 
+      ? [newLanguage, ...segments.slice(1)]
+      : [newLanguage, ...segments];
+    
+    router.push("/" + newSegments.join("/"));
   };
 
   return (

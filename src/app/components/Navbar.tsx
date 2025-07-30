@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTranslations } from "../hooks/useTranslations";
+import { Language } from "../translations";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = () => {
   ];
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value as 'es' | 'en';
+    const newLang = e.target.value as Language;
     setLanguage(newLang);
   };
   return (
