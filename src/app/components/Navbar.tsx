@@ -2,30 +2,22 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslations } from "../hooks/useTranslations";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
-
-  // Detectar idioma actual por la ruta
-  const currentLang = pathname.split("/")[1] === "en" ? "en" : "es";
+  const { language, setLanguage, isLoading } = useLanguage();
+  const { t } = useTranslations();
+  
   const languages = [
     { code: "es", label: "Español" },
     { code: "en", label: "English" },
   ];
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value;
-    // Cambiar solo el primer segmento de la ruta
-    const segments = pathname.split("/").filter(Boolean);
-    if (languages.some(l => l.code === segments[0])) {
-      segments[0] = newLang;
-    } else {
-      segments.unshift(newLang);
-    }
-    router.push("/" + segments.join("/"));
+    const newLang = e.target.value as 'es' | 'en';
+    setLanguage(newLang);
   };
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-50 shadow-sm">
@@ -44,10 +36,11 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-4">
           <select
-            value={currentLang}
+            value={language}
             onChange={handleLanguageChange}
-            className="border rounded px-2 py-1 text-sm bg-white shadow focus:outline-none"
-            aria-label="Seleccionar idioma"
+            disabled={isLoading}
+            className="border rounded px-2 py-1 text-sm bg-white shadow focus:outline-none disabled:opacity-50"
+            aria-label={t('common.selectLanguage')}
           >
             {languages.map(lang => (
               <option key={lang.code} value={lang.code}>{lang.label}</option>
@@ -55,11 +48,11 @@ const Navbar = () => {
           </select>
         </div>
         <ul className="hidden sm:flex gap-8 sm:gap-12 text-lg font-semibold">
-          <li><Link href="/" className="text-black hover:text-gray-700 transition-colors duration-200">Inicio</Link></li>
-          <li><Link href="/about" className="text-black hover:text-gray-700 transition-colors duration-200">Sobre mí</Link></li>
-          <li><Link href="/projects" className="text-black hover:text-gray-700 transition-colors duration-200">Proyectos</Link></li>
-          <li><Link href="/skills" className="text-black hover:text-gray-700 transition-colors duration-200">Habilidades</Link></li>
-          <li><Link href="/contact" className="text-black hover:text-gray-700 transition-colors duration-200">Contacto</Link></li>
+          <li><Link href={`/${language}`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.home')}</Link></li>
+          <li><Link href={`/${language}/about`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.about')}</Link></li>
+          <li><Link href={`/${language}/projects`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.projects')}</Link></li>
+          <li><Link href={`/${language}/skills`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.skills')}</Link></li>
+          <li><Link href={`/${language}/contact`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.contact')}</Link></li>
         </ul>
         {/* Menú móvil con animación de desplazamiento vertical */}
         <ul
@@ -67,11 +60,11 @@ const Navbar = () => {
             ${open ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-8 opacity-0 pointer-events-none'}`}
           role="menu"
         >
-          <li><Link href="/" className="block py-1" role="menuitem" onClick={() => setOpen(false)}>Inicio</Link></li>
-          <li><Link href="/about" className="block py-1" role="menuitem" onClick={() => setOpen(false)}>Sobre mí</Link></li>
-          <li><Link href="/projects" className="block py-1" role="menuitem" onClick={() => setOpen(false)}>Proyectos</Link></li>
-          <li><Link href="/skills" className="block py-1" role="menuitem" onClick={() => setOpen(false)}>Habilidades</Link></li>
-          <li><Link href="/contact" className="block py-1" role="menuitem" onClick={() => setOpen(false)}>Contacto</Link></li>
+          <li><Link href={`/${language}`} className="block py-1" role="menuitem" onClick={() => setOpen(false)}>{t('nav.home')}</Link></li>
+          <li><Link href={`/${language}/about`} className="block py-1" role="menuitem" onClick={() => setOpen(false)}>{t('nav.about')}</Link></li>
+          <li><Link href={`/${language}/projects`} className="block py-1" role="menuitem" onClick={() => setOpen(false)}>{t('nav.projects')}</Link></li>
+          <li><Link href={`/${language}/skills`} className="block py-1" role="menuitem" onClick={() => setOpen(false)}>{t('nav.skills')}</Link></li>
+          <li><Link href={`/${language}/contact`} className="block py-1" role="menuitem" onClick={() => setOpen(false)}>{t('nav.contact')}</Link></li>
         </ul>
       </div>
     </nav>
