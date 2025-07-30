@@ -10,7 +10,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { language, setLanguage, isLoading } = useLanguage();
   const { t } = useTranslations();
-  
+
   const languages = [
     { code: "es", label: "Español" },
     { code: "en", label: "English" },
@@ -20,6 +20,7 @@ const Navbar = () => {
     const newLang = e.target.value as Language;
     setLanguage(newLang);
   };
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-50 shadow-sm">
       <div className="max-w-3xl mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
@@ -35,6 +36,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
+
         <div className="flex items-center gap-4">
           <select
             value={language}
@@ -48,6 +50,7 @@ const Navbar = () => {
             ))}
           </select>
         </div>
+
         <ul className="hidden sm:flex gap-8 sm:gap-12 text-lg font-semibold">
           <li><Link href={`/${language}`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.home')}</Link></li>
           <li><Link href={`/${language}/about`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.about')}</Link></li>
@@ -55,7 +58,8 @@ const Navbar = () => {
           <li><Link href={`/${language}/skills`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.skills')}</Link></li>
           <li><Link href={`/${language}/contact`} className="text-black hover:text-gray-700 transition-colors duration-200">{t('nav.contact')}</Link></li>
         </ul>
-        {/* Menú móvil con animación de desplazamiento vertical */}
+
+        {/* Menú móvil */}
         <ul
           className={`absolute top-full left-0 w-full bg-white shadow-md flex flex-col gap-4 py-4 px-8 text-base font-semibold sm:hidden transition-all duration-300 ease-in-out z-50
             ${open ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-8 opacity-0 pointer-events-none'}`}
@@ -72,4 +76,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

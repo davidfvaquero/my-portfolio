@@ -16,7 +16,6 @@ export default function Home() {
     }
   }, [language, isLoading, router]);
 
-  // Mostrar un loading mientras se redirige
   return (
     <main className="max-w-2xl mx-auto px-4 pt-32 flex flex-col items-center text-center gap-8 pb-16">
       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>

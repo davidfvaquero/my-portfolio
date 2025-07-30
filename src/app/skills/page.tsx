@@ -123,17 +123,17 @@ const skills = [
 
 export default function Skills() {
   return (
-    <main className="max-w-2xl mx-auto px-4 pt-32">
-      <h2 className="text-2xl font-bold mb-8">Habilidades</h2>
-      <div className="flex flex-col gap-8">
+    <main className="max-w-2xl mx-auto px-4 pt-24 sm:pt-32">
+      <h2 className="text-2xl sm:text-2xl font-bold mb-6 sm:mb-8">Habilidades</h2>
+      <div className="flex flex-col gap-6 sm:gap-8">
         {skills.map((cat) => (
           <section key={cat.category}>
-            <h3 className="text-lg font-semibold mb-4">{cat.category}</h3>
-            <div className="flex flex-wrap gap-4">
+            <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4">{cat.category}</h3>
+            <div className="flex flex-wrap gap-2 sm:gap-4">
               {cat.items.map((skill) => (
-                <div key={skill.name} className="flex items-center gap-2 bg-gray-100 border rounded-full px-4 py-2 shadow-sm">
+                <div key={skill.name} className="flex items-center gap-1 sm:gap-2 bg-gray-100 border rounded-full px-3 sm:px-4 py-1 sm:py-2 shadow-sm">
                   {skill.icon}
-                  <span className="font-medium text-gray-800">{skill.name}</span>
+                  <span className="font-medium text-gray-800 text-xs sm:text-base">{skill.name}</span>
                 </div>
               ))}
             </div>

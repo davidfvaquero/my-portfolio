@@ -49,18 +49,18 @@ export default async function ProjectDetail(props: { params: Promise<{ slug: str
   if (!project) return null;
 
   return (
-    <main className="max-w-2xl mx-auto px-4 pt-32">
-      <div className="flex items-center gap-6 mb-6">
+    <main className="max-w-2xl mx-auto px-4 pt-24 sm:pt-32">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
         <Image
           src={project.image}
           alt={project.name}
           width={80}
           height={80}
-          className="w-20 h-20 object-cover rounded shadow-sm border"
+          className="w-24 h-24 sm:w-20 sm:h-20 object-cover rounded shadow-sm border mx-auto sm:mx-0"
         />
-        <div>
-          <h2 className="text-3xl font-bold mb-2">{project.name}</h2>
-          <div className="flex flex-wrap gap-2">
+        <div className="text-center sm:text-left">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">{project.name}</h2>
+          <div className="flex flex-wrap justify-center sm:justify-start gap-2">
             {project.technologies.map((tech) => (
               <span key={tech} className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">
                 {tech}
@@ -69,7 +69,7 @@ export default async function ProjectDetail(props: { params: Promise<{ slug: str
           </div>
         </div>
       </div>
-      <p className="mb-4 text-gray-600">{project.description}</p>
+      <p className="mb-2 sm:mb-4 text-gray-600 text-sm sm:text-base">{project.description}</p>
       <a
         href={project.github}
         target="_blank"
