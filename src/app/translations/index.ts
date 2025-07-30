@@ -21,12 +21,16 @@ const homeTranslations = {
     subtitle: "Desarrollador web y de software apasionado por la IA, el IoT y la innovación.",
     downloadCV: "Descargar CV",
     loading: "Cargando...",
+    availableForWork: "✅ Disponible para trabajar",
+    location: "📍 Logroño, España",
   },
   en: {
     title: "Welcome to my portfolio!",
     subtitle: "Web and software developer passionate about AI, IoT, and innovation.",
     downloadCV: "Download CV",
     loading: "Loading...",
+    availableForWork: "✅ Available for work",
+    location: "📍 Logroño, Spain",
   },
 };
 
