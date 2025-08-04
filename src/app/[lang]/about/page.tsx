@@ -2,54 +2,395 @@
 
 import Image from "next/image";
 import { useTranslations } from "../../hooks/useTranslations";
+import { useTheme } from "../../contexts/ThemeContext";
+import { 
+  Calendar, 
+  MapPin, 
+  GraduationCap, 
+  Code, 
+  Heart, 
+  Target, 
+  Award,
+  Mail,
+  Github,
+  Linkedin,
+  Download,
+  Sparkles,
+  Lightbulb,
+  Zap
+} from "lucide-react";
+
+const personalInfo = {
+  es: {
+    name: "David Fernández Vaquero",
+    title: "Desarrollador de Software",
+    location: "Logroño, España",
+    email: "davidfvaquero@gmail.com",
+    description: "Apasionado desarrollador con experiencia en tecnologías web, móviles e IA. Siempre buscando nuevos retos y oportunidades de aprendizaje.",
+    longDescription: "Soy un desarrollador de software apasionado por la tecnología y la innovación. Mi experiencia abarca desde desarrollo web hasta aplicaciones móviles, pasando por proyectos de inteligencia artificial y soluciones IoT. Me encanta aprender nuevas tecnologías y trabajar en equipo para resolver problemas complejos.",
+    education: {
+      degree: "Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
+      institution: "IES Comercio",
+      year: "2023 - 2025"
+    },
+    interests: [
+      "Inteligencia Artificial",
+      "Desarrollo Web",
+      "Aplicaciones Móviles",
+      "IoT y Hardware",
+      "Videojuegos",
+      "Música"
+    ],
+    goals: [
+      "Especializarme en IA y Machine Learning",
+      "Desarrollar aplicaciones innovadoras",
+      "Contribuir a proyectos open source",
+      "Mentorar a otros desarrolladores"
+    ]
+  },
+  en: {
+    name: "David Fernández Vaquero",
+    title: "Software Developer",
+    location: "Logroño, Spain",
+    email: "davidfvaquero@gmail.com",
+    description: "Passionate developer with experience in web, mobile and AI technologies. Always seeking new challenges and learning opportunities.",
+    longDescription: "I'm a software developer passionate about technology and innovation. My experience spans from web development to mobile applications, including AI projects and IoT solutions. I love learning new technologies and working in teams to solve complex problems.",
+    education: {
+      degree: "Bachelor's Degree in Multiplatform Application Development (DAM)",
+      institution: "IES Comercio",
+      year: "2023 - 2025"
+    },
+    interests: [
+      "Artificial Intelligence",
+      "Web Development",
+      "Mobile Applications",
+      "IoT & Hardware",
+      "Video Games",
+      "Music"
+    ],
+    goals: [
+      "Specialize in AI and Machine Learning",
+      "Develop innovative applications",
+      "Contribute to open source projects",
+      "Mentor other developers"
+    ]
+  }
+};
+
+const timeline = [
+  {
+    year: "2025",
+    title: {
+      es: "Finalización de DAM",
+      en: "DAM Completion"
+    },
+    description: {
+      es: "Finalización del Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+      en: "Completion of Bachelor's Degree in Multiplatform Application Development"
+    },
+    icon: <GraduationCap className="w-4 h-4" />
+  },
+  {
+    year: "2024",
+    title: {
+      es: "Desarrollo de Portafolio Web",
+      en: "Web Portfolio Development"
+    },
+    description: {
+      es: "Creación de portafolio personal con Next.js y diseño moderno",
+      en: "Personal portfolio creation with Next.js and modern design"
+    },
+    icon: <Code className="w-4 h-4" />
+  },
+  {
+    year: "2023",
+    title: {
+      es: "Inicio de DAM y Proyectos",
+      en: "DAM Start and Projects"
+    },
+    description: {
+      es: "Comienzo del Grado Superior DAM y desarrollo de proyectos de IA y Flutter",
+      en: "Start of DAM Bachelor's Degree and AI/Flutter project development"
+    },
+    icon: <Sparkles className="w-4 h-4" />
+  },
+  {
+    year: "2022",
+    title: {
+      es: "Desarrollo Web y Java",
+      en: "Web Development and Java"
+    },
+    description: {
+      es: "Proyectos web con React y aplicaciones Java",
+      en: "Web projects with React and Java applications"
+    },
+    icon: <Zap className="w-4 h-4" />
+  }
+];
 
 export default function About() {
   const { language } = useTranslations();
+  const { isDark } = useTheme();
+  const info = personalInfo[language];
 
   return (
-    <main className="max-w-2xl mx-auto px-4 pt-24 sm:pt-32 flex flex-col items-center text-center gap-4 sm:gap-6">
-      <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">
-        {language === 'es' ? 'Sobre mí' : 'About Me'}
-      </h2>
-      <Image
-        src="/perfil.jpg"
-        alt={language === 'es' ? "Foto de David" : "David's photo"}
-        width={96}
-        height={96}
-        className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-gray-200 shadow-md mx-auto"
-        priority
-      />
-      <p className="text-base sm:text-lg text-gray-700">
-        {language === 'es' 
-          ? "¡Hola! Soy David, desarrollador de software con pasión por la tecnología, la inteligencia artificial y la creación de soluciones innovadoras. Tengo experiencia en desarrollo web, aplicaciones móviles, proyectos de IA y agentes inteligentes, así como en el uso de Arduino y el desarrollo de soluciones IoT. Me encanta aprender nuevas tecnologías y trabajar en equipo para afrontar retos complejos."
-          : "Hi! I'm David, a software developer passionate about technology, artificial intelligence, and creating innovative solutions. I have experience in web development, mobile applications, AI projects and intelligent agents, as well as using Arduino and developing IoT solutions. I love learning new technologies and working in teams to tackle complex challenges."
-        }
-      </p>
-      <p className="text-sm sm:text-md text-gray-600">
-        {language === 'es'
-          ? "Puedes ver algunos de mis proyectos destacados en este portafolio y contactarme para colaborar o compartir ideas."
-          : "You can see some of my featured projects in this portfolio and contact me to collaborate or share ideas."
-        }
-      </p>
-      <div className="flex gap-4 sm:gap-6 justify-center mt-1 sm:mt-2">
-        <a
-          href="https://github.com/davidfvaquero"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-gray-700 hover:text-black font-medium transition-colors"
-        >
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
-          GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/davidfvaquero/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium transition-colors"
-        >
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-          LinkedIn
-        </a>
+    <main className="max-w-6xl mx-auto px-4 pt-32 pb-16">
+      {/* Hero Section */}
+      <div className="text-center mb-16">
+                 <div className="relative mb-8">
+           <Image
+             src="/perfil.jpg"
+             alt={language === 'es' ? "Foto de David" : "David's photo"}
+             width={150}
+             height={150}
+             className="w-32 h-32 rounded-full object-cover border-4 shadow-lg mx-auto"
+             priority
+           />
+         </div>
+        
+        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          {info.name}
+        </h1>
+        
+        <h2 className={`text-xl mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+          {info.title}
+        </h2>
+        
+        <div className="flex items-center justify-center gap-6 mb-6">
+          <div className={`flex items-center gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+            <MapPin className="w-4 h-4" />
+            <span>{info.location}</span>
+          </div>
+          <div className={`flex items-center gap-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+            <Mail className="w-4 h-4" />
+            <span>{info.email}</span>
+          </div>
+        </div>
+        
+        <p className={`text-lg max-w-3xl mx-auto leading-relaxed ${
+          isDark ? 'text-gray-300' : 'text-gray-700'
+        }`}>
+          {info.longDescription}
+        </p>
+      </div>
+
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        {/* Education & Interests */}
+        <div className="space-y-8">
+          {/* Education */}
+          <div className={`p-6 rounded-xl border ${
+            isDark 
+              ? 'border-gray-700 bg-gray-800' 
+              : 'border-gray-200 bg-white shadow-sm'
+          }`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`p-2 rounded-lg ${
+                isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
+              }`}>
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <h3 className={`text-xl font-bold ${
+                isDark ? 'text-gray-100' : 'text-gray-900'
+              }`}>
+                {language === 'es' ? 'Educación' : 'Education'}
+              </h3>
+            </div>
+            
+            <div className="space-y-3">
+              <div>
+                <h4 className={`font-semibold ${
+                  isDark ? 'text-gray-100' : 'text-gray-900'
+                }`}>
+                  {info.education.degree}
+                </h4>
+                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {info.education.institution}
+                </p>
+                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {info.education.year}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Interests */}
+          <div className={`p-6 rounded-xl border ${
+            isDark 
+              ? 'border-gray-700 bg-gray-800' 
+              : 'border-gray-200 bg-white shadow-sm'
+          }`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`p-2 rounded-lg ${
+                isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
+              }`}>
+                <Heart className="w-5 h-5" />
+              </div>
+              <h3 className={`text-xl font-bold ${
+                isDark ? 'text-gray-100' : 'text-gray-900'
+              }`}>
+                {language === 'es' ? 'Intereses' : 'Interests'}
+              </h3>
+            </div>
+            
+            <div className="flex flex-wrap gap-2">
+              {info.interests.map((interest, index) => (
+                <span
+                  key={index}
+                  className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    isDark 
+                      ? 'bg-gray-700 text-gray-300 border border-gray-600' 
+                      : 'bg-gray-100 text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Goals & Timeline */}
+        <div className="space-y-8">
+          {/* Goals */}
+          <div className={`p-6 rounded-xl border ${
+            isDark 
+              ? 'border-gray-700 bg-gray-800' 
+              : 'border-gray-200 bg-white shadow-sm'
+          }`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`p-2 rounded-lg ${
+                isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
+              }`}>
+                <Target className="w-5 h-5" />
+              </div>
+              <h3 className={`text-xl font-bold ${
+                isDark ? 'text-gray-100' : 'text-gray-900'
+              }`}>
+                {language === 'es' ? 'Objetivos' : 'Goals'}
+              </h3>
+            </div>
+            
+            <ul className="space-y-3">
+              {info.goals.map((goal, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className={`w-2 h-2 rounded-full mt-2 ${
+                    isDark ? 'bg-blue-400' : 'bg-blue-500'
+                  }`} />
+                  <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    {goal}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Timeline */}
+          <div className={`p-6 rounded-xl border ${
+            isDark 
+              ? 'border-gray-700 bg-gray-800' 
+              : 'border-gray-200 bg-white shadow-sm'
+          }`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`p-2 rounded-lg ${
+                isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
+              }`}>
+                <Calendar className="w-5 h-5" />
+              </div>
+              <h3 className={`text-xl font-bold ${
+                isDark ? 'text-gray-100' : 'text-gray-900'
+              }`}>
+                {language === 'es' ? 'Timeline' : 'Timeline'}
+              </h3>
+            </div>
+            
+            <div className="space-y-4">
+              {timeline.map((item, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
+                    isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
+                  }`}>
+                    {item.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`text-sm font-bold ${
+                        isDark ? 'text-blue-400' : 'text-blue-600'
+                      }`}>
+                        {item.year}
+                      </span>
+                    </div>
+                    <h4 className={`font-semibold mb-1 ${
+                      isDark ? 'text-gray-100' : 'text-gray-900'
+                    }`}>
+                      {item.title[language]}
+                    </h4>
+                    <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      {item.description[language]}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Social Links */}
+      <div className={`p-8 rounded-xl border text-center ${
+        isDark 
+          ? 'border-gray-700 bg-gray-800' 
+          : 'border-gray-200 bg-white shadow-sm'
+      }`}>
+        <h3 className={`text-2xl font-bold mb-6 ${
+          isDark ? 'text-gray-100' : 'text-gray-900'
+        }`}>
+          {language === 'es' ? 'Conectemos' : "Let's Connect"}
+        </h3>
+        
+                 <div className="flex flex-wrap justify-center gap-6">
+           <a
+             href="https://github.com/davidfvaquero"
+             target="_blank"
+             rel="noopener noreferrer"
+             className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 ${
+               isDark 
+                 ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+             }`}
+           >
+             <Github className="w-5 h-5" />
+             <span>GitHub</span>
+           </a>
+           
+                       <a
+              href="https://www.linkedin.com/in/david-fernández-vaquero-15b8b8346"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 ${
+                isDark 
+                  ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn</span>
+            </a>
+           
+           <a
+             href="/cvDavidFernandezVaquero.pdf"
+             target="_blank"
+             rel="noopener noreferrer"
+             className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105 ${
+               isDark 
+                 ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+             }`}
+           >
+             <Download className="w-5 h-5" />
+             <span>{language === 'es' ? 'CV' : 'CV'}</span>
+           </a>
+         </div>
       </div>
     </main>
   );
