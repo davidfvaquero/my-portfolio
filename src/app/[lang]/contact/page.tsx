@@ -5,7 +5,6 @@ import { useTranslations } from "../../hooks/useTranslations";
 import { useTheme } from "../../contexts/ThemeContext";
 import { 
   Mail, 
-  Phone, 
   MapPin, 
   Send, 
   CheckCircle, 

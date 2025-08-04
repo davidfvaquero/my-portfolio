@@ -14,7 +14,7 @@ const Navbar = () => {
   const { language, setLanguage, isLoading } = useLanguage();
   const { t } = useTranslations();
   const pathname = usePathname();
-  const { theme, toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
 
   const languages = [
     { code: "es", label: "Español" },

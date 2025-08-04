@@ -3,9 +3,31 @@
 import Image from "next/image";
 import { useTranslations } from "../../hooks/useTranslations";
 import { useTheme } from "../../contexts/ThemeContext";
-import { ExternalLink, Github, Calendar, Eye } from "lucide-react";
+import { Github, Calendar, Eye } from "lucide-react";
 
-const projects = [
+interface Project {
+  slug: string;
+  name: {
+    es: string;
+    en: string;
+  };
+  description: {
+    es: string;
+    en: string;
+  };
+  github: string;
+  demo: string | null;
+  image: string;
+  technologies: string[];
+  date: string;
+  status: {
+    es: string;
+    en: string;
+  };
+  featured: boolean;
+}
+
+const projects: Project[] = [
   {
     slug: "mood-tracker",
     name: {
@@ -166,8 +188,8 @@ export default function Projects() {
 }
 
 interface ProjectCardProps {
-  project: any;
-  language: string;
+  project: Project;
+  language: 'es' | 'en';
   featured?: boolean;
 }
 

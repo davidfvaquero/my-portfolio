@@ -7,8 +7,6 @@ import {
   Linkedin, 
   Mail, 
   Download, 
-  Heart, 
-  Coffee,
   ExternalLink,
   ArrowUp
 } from "lucide-react";

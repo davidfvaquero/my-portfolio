@@ -10,13 +10,11 @@ import {
   Code, 
   Heart, 
   Target, 
-  Award,
   Mail,
   Github,
   Linkedin,
   Download,
   Sparkles,
-  Lightbulb,
   Zap
 } from "lucide-react";
 
