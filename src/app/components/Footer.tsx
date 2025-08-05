@@ -111,7 +111,7 @@ export default function Footer() {
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
-      href: "https://www.linkedin.com/in/david-fernández-vaquero-15b8b8346",
+      href: "https://www.linkedin.com/in/davidfvaquero",
       label: data.social.linkedin,
       color: "hover:text-blue-600"
     },
@@ -319,7 +319,7 @@ export default function Footer() {
                   <ExternalLink className="w-3 h-3" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/david-fernández-vaquero-15b8b8346"
+                  href="https://www.linkedin.com/in/davidfvaquero"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-1 transition-colors hover:text-blue-500 ${

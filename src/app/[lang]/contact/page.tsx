@@ -449,7 +449,7 @@ export default function Contact() {
               </a>
               
               <a
-                href="https://www.linkedin.com/in/david-fernández-vaquero-15b8b8346"
+                href="https://www.linkedin.com/in/davidfvaquero"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center gap-3 p-4 rounded-lg transition-all duration-200 hover:scale-105 ${
